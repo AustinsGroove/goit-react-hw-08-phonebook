@@ -15,7 +15,7 @@ const Wrapper = styled('div')(() => {
           color: 'rgba(255, 255, 255, 0.9)',
         },
         'a:hover': {
-          color: 'rgba(255, 100, 150, 0.9)',
+          color: 'rgba(255, 150, 150, 0.9)',
         },
       },
     },

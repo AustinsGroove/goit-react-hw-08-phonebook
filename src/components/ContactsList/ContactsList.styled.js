@@ -7,6 +7,7 @@ const Wrapper = styled('div')(() => {
     display: 'flex',
     flexDirection: 'column',
     margin: '0 auto',
+    marginBottom: 10,
     h2: {
       textAlign: 'center',
     },

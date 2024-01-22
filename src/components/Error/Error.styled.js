@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled('div')(() => {
   return {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: 'rgba(255, 0, 0, 0.3)',
     borderRadius: 10,
     width: 330,
     display: 'flex',
@@ -10,14 +10,6 @@ const Wrapper = styled('div')(() => {
     padding: '10px',
     gap: '10px',
     fontWeight: 'bold',
-    button: {
-      borderRadius: 6,
-
-      borderColor: 'transparent',
-    },
-    'button:hover': {
-      backgroundColor: 'rgba(155, 100, 150, 0.6)',
-    },
   };
 });
 

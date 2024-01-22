@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled('div')(() => {
   return {
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     width: 330,
     borderRadius: 10,
     display: 'flex',
