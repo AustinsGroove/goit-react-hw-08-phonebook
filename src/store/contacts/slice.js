@@ -4,25 +4,12 @@ import {
   addContactThunk,
   deleteContactThunk,
 } from './thunks';
+import { handleFulfilled, handlePending, handleRejected } from './handlers';
 
 const initialState = {
   isLoading: false,
   error: null,
   items: [],
-};
-
-const handlePending = state => {
-  state.isLoading = true;
-  state.error = '';
-};
-
-const handleFulfilled = state => {
-  state.isLoading = false;
-};
-
-const handleRejected = (state, { payload }) => {
-  state.isLoading = false;
-  state.error = payload;
 };
 
 const contactsSlice = createSlice({
@@ -34,10 +21,10 @@ const contactsSlice = createSlice({
         state.items = payload;
       })
       .addCase(addContactThunk.fulfilled, (state, { payload }) => {
-        state.items.push(payload.data);
+        state.items.push(payload);
       })
       .addCase(deleteContactThunk.fulfilled, (state, { payload }) => {
-        state.items = state.items.filter(item => item.id !== payload.data.id);
+        state.items = state.items.filter(item => item.id !== payload.id);
       })
       .addMatcher(action => action.type.endsWith('/pending'), handlePending)
       .addMatcher(action => action.type.endsWith('/fulfilled'), handleFulfilled)

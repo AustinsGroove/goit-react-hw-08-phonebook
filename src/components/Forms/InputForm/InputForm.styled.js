@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Wrapper = styled('div')(() => {
   return {
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    width: 300,
+    width: 330,
     borderRadius: 10,
     form: {
       padding: 10,
@@ -19,6 +19,7 @@ const Wrapper = styled('div')(() => {
       gap: 5,
     },
     input: {
+      width: 280,
       borderRadius: 10,
       padding: 5,
       borderColor: 'transparent',
@@ -29,6 +30,9 @@ const Wrapper = styled('div')(() => {
       borderRadius: 10,
       padding: 5,
       borderColor: 'transparent',
+    },
+    'button:hover': {
+      backgroundColor: 'rgba(255, 100, 150, 0.6)',
     },
   };
 });

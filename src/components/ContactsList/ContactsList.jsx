@@ -1,20 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { getContactsThunk } from 'store/sliceContacts/thunks';
-import { useEffect } from 'react';
-import {
-  selectError,
-  selectIsLoading,
-  selectFilteredContacts,
-} from 'store/selectors';
+import { useSelector } from 'react-redux';
+
+import { selectFilteredContacts } from 'store/filter/selectors';
 import Contact from 'components/Contact/Contact';
 import Wrapper from './ContactsList.styled';
+import { selectError, selectIsLoading } from 'store/contacts/selectors';
 
 const ContactsList = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getContactsThunk());
-  }, [dispatch]);
-
   const filteredContacts = useSelector(selectFilteredContacts);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -22,10 +13,10 @@ const ContactsList = () => {
   return (
     <Wrapper>
       <ul>
-        {filteredContacts.map(({ id, name, phone }) => {
+        {filteredContacts.map(({ id, name, number }) => {
           return (
             <li key={id}>
-              <Contact name={name} phone={phone} id={id} />
+              <Contact name={name} number={number} id={id} />
             </li>
           );
         })}

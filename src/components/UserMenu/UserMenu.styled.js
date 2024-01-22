@@ -2,17 +2,14 @@ import styled from 'styled-components';
 
 const Wrapper = styled('div')(() => {
   return {
-    backgroundColor: 'white',
-    padding: '5px',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
     borderRadius: 10,
+    width: 330,
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    width: '100%',
-    gap: 10,
-    p: {
-      fontSize: 14,
-    },
+    justifyContent: 'space-between',
+    padding: '10px',
+    gap: '10px',
+    fontWeight: 'bold',
     button: {
       borderRadius: 6,
 

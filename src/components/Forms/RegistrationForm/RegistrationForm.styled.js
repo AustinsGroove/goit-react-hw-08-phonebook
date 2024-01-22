@@ -5,13 +5,14 @@ const Wrapper = styled('div')(() => {
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
     width: 330,
     borderRadius: 10,
-    display: 'flex',
-    flexDirection: 'column',
-    margin: '0 auto',
-    marginBottom: '10px',
-    alignItems: 'center',
-    gap: 10,
-    padding: 10,
+    form: {
+      padding: 10,
+      display: 'flex',
+      flexDirection: 'column',
+      margin: '0 auto',
+      alignItems: 'center',
+      gap: 5,
+    },
     label: {
       display: 'flex',
       flexDirection: 'column',
@@ -22,6 +23,16 @@ const Wrapper = styled('div')(() => {
       borderRadius: 10,
       padding: 5,
       borderColor: 'transparent',
+    },
+    button: {
+      width: 170,
+      margin: 10,
+      borderRadius: 10,
+      padding: 5,
+      borderColor: 'transparent',
+    },
+    'button:hover': {
+      backgroundColor: 'rgba(255, 100, 150, 0.6)',
     },
   };
 });
