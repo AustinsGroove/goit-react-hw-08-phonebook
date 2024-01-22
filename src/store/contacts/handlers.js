@@ -1,13 +1,11 @@
-export const handlePending = state => {
-  state.isLoading = true;
-  state.error = '';
+export const getContactsHandler = (state, { payload }) => {
+  state.items = payload;
 };
 
-export const handleFulfilled = state => {
-  state.isLoading = false;
+export const addContactHandler = (state, { payload }) => {
+  state.items.push(payload);
 };
 
-export const handleRejected = (state, { payload }) => {
-  state.isLoading = false;
-  state.error = payload;
+export const deleteContactHandler = (state, { payload }) => {
+  state.items = state.items.filter(item => item.id !== payload.id);
 };

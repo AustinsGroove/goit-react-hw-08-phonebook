@@ -3,9 +3,9 @@ import { getContactsApi, addContactApi, deleteContactApi } from 'api/contacts';
 
 export const getContactsThunk = createAsyncThunk(
   'contacts/fetchAll',
-  async (token, { rejectWithValue }) => {
+  async (_, { rejectWithValue, getState }) => {
     try {
-      return await getContactsApi(token);
+      return await getContactsApi(getState().auth.token);
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
@@ -14,7 +14,12 @@ export const getContactsThunk = createAsyncThunk(
 
 export const addContactThunk = createAsyncThunk(
   'contacts/addContact',
-  async (body, { rejectWithValue }) => {
+  async (data, { rejectWithValue, getState }) => {
+    const token = getState().auth.token;
+    const body = {
+      data,
+      token,
+    };
     try {
       return await addContactApi(body);
     } catch (error) {
@@ -25,7 +30,12 @@ export const addContactThunk = createAsyncThunk(
 
 export const deleteContactThunk = createAsyncThunk(
   'contacts/deleteContact',
-  async (body, { rejectWithValue }) => {
+  async (id, { rejectWithValue, getState }) => {
+    const token = getState().auth.token;
+    const body = {
+      id,
+      token,
+    };
     try {
       return await deleteContactApi(body);
     } catch (error) {

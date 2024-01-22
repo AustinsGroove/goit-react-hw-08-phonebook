@@ -1,17 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteContactThunk } from 'store/contacts/thunks';
 import Wrapper from './Contact.styled';
-import { selectToken } from 'store/auth/selectors';
 
 const Contact = ({ name, number, id }) => {
-  const token = useSelector(selectToken);
   const dispatch = useDispatch();
   const deleteContactHandler = () => {
-    const body = {
-      id,
-      token,
-    };
-    dispatch(deleteContactThunk(body));
+    dispatch(deleteContactThunk(id));
   };
 
   return (

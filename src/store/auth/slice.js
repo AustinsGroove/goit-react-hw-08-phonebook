@@ -1,18 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logInThunk, logOutThunk, refreshThunk, signUpThunk } from './thunks';
 import {
-  handleFulfilled,
   handleLogIn,
   handleLogOut,
-  handlePending,
   handleRefresh,
-  handleRejected,
   handleSignUp,
 } from './handlers';
 
 const initialState = {
-  isLoading: false,
-  error: '',
   token: '',
   profile: null,
 };
@@ -25,13 +20,11 @@ const authSlice = createSlice({
       .addCase(signUpThunk.fulfilled, handleSignUp)
       .addCase(logInThunk.fulfilled, handleLogIn)
       .addCase(refreshThunk.fulfilled, handleRefresh)
+      .addCase(logOutThunk.fulfilled, handleLogOut)
       .addCase(refreshThunk.rejected, (state, { payload }) => {
         state.token = '';
-      })
-      .addCase(logOutThunk.fulfilled, handleLogOut)
-      .addMatcher(action => action.type.endsWith('/pending'), handlePending)
-      .addMatcher(action => action.type.endsWith('/fulfilled'), handleFulfilled)
-      .addMatcher(action => action.type.endsWith('/rejected'), handleRejected);
+        state.profile = null;
+      });
   },
 });
 

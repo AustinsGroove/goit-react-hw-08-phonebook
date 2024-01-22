@@ -13,6 +13,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { rootReducer } from './root/slice';
 
 const persistConfig = {
   key: 'root',
@@ -26,6 +27,7 @@ const reducer = {
   contacts: contactsReducer,
   filter: filterReducer,
   auth: persistedReducer,
+  root: rootReducer,
 };
 
 export const store = configureStore({
